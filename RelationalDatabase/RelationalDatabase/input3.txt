@@ -1,0 +1,25 @@
+#|This output should be a success:
+Schedule('Goofy','CS240',X)? No
+Sports('Max',X)? Yes(1)
+  X='skateboarding'
+Schedule(X,Y,'Mathematics')? Yes(1)
+  X='Raqis', Y='CS240'
+
+One of the queries is asking a question about a person from a different scheme-- since the person is not in both schemes, it should be a no. It is also checking for selecting for different variables combined with string literals.
+|#
+
+
+Schemes:
+  Schedule(N,C,M)
+  Sports(P,S)
+Facts:
+  Schedule('Raqis','CS240','Mathematics').
+  Sports('Goofy','fishing').
+  Schedule('Bobby','NEURO360','Neuroscience').
+  Schedule('PJ','PSYCH370','Psychology').
+  Sports('Max','skateboarding').
+Rules:
+Queries:
+  Schedule('Goofy','CS240',X)?
+  Sports('Max',X)?
+  Schedule(X,Y,'Mathematics')?

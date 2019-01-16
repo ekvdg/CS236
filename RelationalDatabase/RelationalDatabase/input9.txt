@@ -1,0 +1,36 @@
+#| This should output:
+Success
+ab('tyler','mark')? Yes(1)
+ab(who,'liam')? Yes(3)
+  who='liam'
+  who='mark'
+  who='tyler'
+ab('tyler',anyone)? Yes(2)
+  anyone='liam'
+  anyone='mark'
+ab(X,X)? Yes(1)
+  X='liam'
+ab(X,Y)? Yes(4)
+  X='liam', Y='liam'
+  X='mark', Y='liam'
+  X='tyler', Y='liam'
+  X='tyler', Y='mark'
+
+This is a more complex test to make sure that I can handle lots of different combinations of facts
+|#
+
+Schemes: 
+	ab(A,B)
+Facts:
+	ab('tyler','liam').
+	ab('mark','liam').
+	ab('tyler','mark').
+	ab('liam','liam').
+Rules:
+
+Queries:
+	ab('tyler','mark')?
+	ab( who, 'liam')?
+	ab('tyler', anyone)?
+	ab(X,X)?
+	ab(X,Y)?

@@ -1,0 +1,22 @@
+#|This output should be a success:
+watermelon(Y,Y,Y,Y)? No
+watermelon(X,Y,X,Y)? Yes(1)
+  X='so', Y='delicious'
+watermelon('pink','fresh',X,Y)? Yes(1)
+  X='delicious', Y='summer'
+
+The biggest test in this one is the query about X,Y,X,Y-- checking to see if even if there are multiple repeating variables and they are not next to each other, it can still tell if the X's and Y's match.
+|#
+
+
+Schemes:
+  watermelon(a,b,c,d)
+Facts:
+  watermelon('pink','fresh','delicious','summer').
+  watermelon('I','love','watermelons','a lot').
+  watermelon('so','delicious','so','delicious').
+Rules:
+Queries:
+  watermelon(Y,Y,Y,Y)?
+  watermelon(X,Y,X,Y)?
+  watermelon('pink','fresh',X,Y)?

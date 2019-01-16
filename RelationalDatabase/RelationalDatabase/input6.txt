@@ -1,0 +1,15 @@
+#| This should be a success:
+pancake(P)? No
+This is testing what happens if there are no facts
+|#
+
+Schemes:
+  pancake(P)
+
+Facts:
+
+Rules:
+
+Queries:
+  pancake(P)?
+

@@ -1,0 +1,20 @@
+#|This output should be a success:
+nacho('pepperjack',X)? Yes(1)
+  X='jalepeños'
+nacho(X,Y)? Yes(2)
+  X='cheddar', Y='guacamole'
+  X='pepperjack', Y='jalepeños'
+
+This is checking various different kinds of variables in the queries, including selecting for a string literal in one case and having only variables in the second case.
+|#
+
+
+Schemes:
+  nacho(cheese,toppings)
+Facts:
+  nacho('pepperjack','jalepeños').
+  nacho('cheddar','guacamole').
+Rules:
+Queries:
+  nacho('pepperjack',X)?
+  nacho(X,Y)?

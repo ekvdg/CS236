@@ -1,0 +1,18 @@
+#| This should be a success:
+It should output
+goldfish(X)? Yes(1)
+  X='the snack that smiles back'
+This is just a really simple test to make sure that I can handle variables
+|#
+
+Schemes:
+  goldfish(X)
+
+Facts:
+  goldfish('the snack that smiles back').
+
+Rules:
+
+Queries:
+  goldfish(X)?
+

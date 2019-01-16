@@ -1,0 +1,38 @@
+#| This is what it should output:
+Success
+s('3',Z)? No
+a(Y,'3')? No
+s(W,X)? Yes(2)
+  W='1', X='2'
+  W='4', X='3'
+
+This test has rules in it to make sure that even when I have rules, it still works without using them
+|#
+
+
+Schemes:
+    s(A,B)
+    n(C,D)
+    a(E,F)
+    p(G,H)
+
+Facts:
+    s('1','2').
+    s('4','3').
+    n('3','2').
+    a('1','4').
+    a('2','5').
+    a('3','5').
+    a('4','1').
+    p('2','3').
+    
+ 
+Rules:
+    a(A,B) :- s(A,X),n(B,X).
+    s(C,D) :- a(D,C).
+    n(E,F) :- s(E,X),a(X,F).
+
+Queries:
+    s('3',Z)?
+    a(Y,'3')?
+    s(W,X)?

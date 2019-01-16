@@ -1,0 +1,24 @@
+#|This output should be a success:
+Snap(A,A,A,A)? No
+Snap('1001','Sean','16','3.2')? Yes(1)
+Snap(X,Y,Z,X)? Yes(1)
+  X='4', Y='Miranda', Z='14'
+Snap(X,Y,X,Z)? Yes(1)
+  X='15', Y='Laney', Z='3.89'
+
+This one is mostly testing if different variables match each other and how that works.
+|#
+
+Schemes:
+  Snap(ID, name, age, GPA)
+Facts:
+  Snap('1001','Sean','16','3.2').
+  Snap('234','Alex','17','3.5').
+  Snap('4','Miranda','14','4').
+  Snap('15','Laney','15','3.89').
+Rules:
+Queries:
+  Snap(A,A,A,A)?
+  Snap('1001','Sean','16','3.2')?
+  Snap(X,Y,Z,X)?
+  Snap(X,Y,X,Z)?

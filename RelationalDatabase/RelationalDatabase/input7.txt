@@ -1,0 +1,29 @@
+#| This should be a success and it should output:
+
+mango(A)? Yes(2)
+  A='a'
+  A='b'
+mango('a')? Yes(1)
+pineapple(X,X)? No 
+
+This is testing two different types of schemes
+|#
+
+Schemes:
+  mango(A)
+  pineapple(B,C)
+
+Facts:
+  mango('a').
+  mango('a').
+  mango('b').
+  pineapple('x','y').
+
+
+Rules:
+
+Queries:
+  mango(A)?
+  mango('a')?
+  pineapple(X,X)?
+
