@@ -3,7 +3,7 @@
 //  DatalogParser
 //
 //  Created by Ellie Van De Graaff on 10/1/18.
-//  Copyright © 2018 Ellie Van De Graaff. All rights reserved.
+//  Copyright � 2018 Ellie Van De Graaff. All rights reserved.
 //
 
 #ifndef DatalogProgram_h
@@ -16,8 +16,9 @@
 #include "Predicate.h"
 #include "Rule.h"
 #include "Parameter.h"
+#include "Expressions.h"
 
-class DatalogProgram{
+class DatalogProgram {
 private:
     std::vector<Token> passedTokens;
     std::set<std::string> domain;
@@ -32,6 +33,7 @@ private:
     Predicate currentPred;
     Parameter currentParam;
     std::string vecType;
+    Expressions tempExpr;
     int index = 0;
 public:
     int main();
@@ -39,6 +41,8 @@ public:
     void errorMessage();
     std::string getTokenType();
     void printOutSchemes();
+    void extraPred();
+    void otherExtraPred();
     void printOutFacts();
     void printOutRules();
     void printOutQueries();

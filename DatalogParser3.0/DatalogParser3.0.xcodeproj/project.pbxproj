@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F0FC076C216BD55B00478198 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0FC076B216BD55B00478198 /* main.cpp */; };
-		F0FC0774216BD58000478198 /* Scanner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0FC0772216BD58000478198 /* Scanner.cpp */; };
-		F0FC0777216BD59D00478198 /* DatalogProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0FC0775216BD59D00478198 /* DatalogProgram.cpp */; };
-		F0FC077E216BD6A500478198 /* Predicate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0FC077C216BD6A500478198 /* Predicate.cpp */; };
+		F0FC07B42176451F00478198 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0FC07B32176451F00478198 /* main.cpp */; };
+		F0FC07BC2176454B00478198 /* Scanner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0FC07BA2176454B00478198 /* Scanner.cpp */; };
+		F0FC07BF2176457E00478198 /* DatalogProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0FC07BD2176457E00478198 /* DatalogProgram.cpp */; };
+		F0FC07C4217645EC00478198 /* Predicate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0FC07C2217645EC00478198 /* Predicate.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		F0FC0766216BD55B00478198 /* CopyFiles */ = {
+		F0FC07AE2176451F00478198 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -26,21 +26,22 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		F0FC0768216BD55B00478198 /* DatalogParserP2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DatalogParserP2; sourceTree = BUILT_PRODUCTS_DIR; };
-		F0FC076B216BD55B00478198 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		F0FC0772216BD58000478198 /* Scanner.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Scanner.cpp; sourceTree = "<group>"; };
-		F0FC0773216BD58000478198 /* Scanner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scanner.h; sourceTree = "<group>"; };
-		F0FC0775216BD59D00478198 /* DatalogProgram.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DatalogProgram.cpp; sourceTree = "<group>"; };
-		F0FC0776216BD59D00478198 /* DatalogProgram.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DatalogProgram.h; sourceTree = "<group>"; };
-		F0FC0778216BD5AB00478198 /* Token.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Token.h; sourceTree = "<group>"; };
-		F0FC077A216BD69400478198 /* Rule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Rule.h; sourceTree = "<group>"; };
-		F0FC077C216BD6A500478198 /* Predicate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Predicate.cpp; sourceTree = "<group>"; };
-		F0FC077D216BD6A500478198 /* Predicate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Predicate.h; sourceTree = "<group>"; };
-		F0FC0780216BD6C800478198 /* Parameter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Parameter.h; sourceTree = "<group>"; };
+		F0FC07B02176451F00478198 /* DatalogParser3.0 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DatalogParser3.0; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0FC07B32176451F00478198 /* main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		F0FC07BA2176454B00478198 /* Scanner.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Scanner.cpp; sourceTree = "<group>"; };
+		F0FC07BB2176454B00478198 /* Scanner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scanner.h; sourceTree = "<group>"; };
+		F0FC07BD2176457E00478198 /* DatalogProgram.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DatalogProgram.cpp; sourceTree = "<group>"; };
+		F0FC07BE2176457E00478198 /* DatalogProgram.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DatalogProgram.h; sourceTree = "<group>"; };
+		F0FC07C0217645B100478198 /* Expressions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Expressions.h; sourceTree = "<group>"; };
+		F0FC07C1217645D300478198 /* Parameter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Parameter.h; sourceTree = "<group>"; };
+		F0FC07C2217645EC00478198 /* Predicate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Predicate.cpp; sourceTree = "<group>"; };
+		F0FC07C3217645EC00478198 /* Predicate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Predicate.h; sourceTree = "<group>"; };
+		F0FC07C52176461100478198 /* Rule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Rule.h; sourceTree = "<group>"; };
+		F0FC07C62176462600478198 /* Token.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Token.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		F0FC0765216BD55B00478198 /* Frameworks */ = {
+		F0FC07AD2176451F00478198 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -50,106 +51,107 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F0FC075F216BD55B00478198 = {
+		F0FC07A72176451F00478198 = {
 			isa = PBXGroup;
 			children = (
-				F0FC076A216BD55B00478198 /* DatalogParserP2 */,
-				F0FC0769216BD55B00478198 /* Products */,
+				F0FC07B22176451F00478198 /* DatalogParser3.0 */,
+				F0FC07B12176451F00478198 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		F0FC0769216BD55B00478198 /* Products */ = {
+		F0FC07B12176451F00478198 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F0FC0768216BD55B00478198 /* DatalogParserP2 */,
+				F0FC07B02176451F00478198 /* DatalogParser3.0 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F0FC076A216BD55B00478198 /* DatalogParserP2 */ = {
+		F0FC07B22176451F00478198 /* DatalogParser3.0 */ = {
 			isa = PBXGroup;
 			children = (
-				F0FC076B216BD55B00478198 /* main.cpp */,
-				F0FC0775216BD59D00478198 /* DatalogProgram.cpp */,
-				F0FC0778216BD5AB00478198 /* Token.h */,
-				F0FC077A216BD69400478198 /* Rule.h */,
-				F0FC077C216BD6A500478198 /* Predicate.cpp */,
-				F0FC077D216BD6A500478198 /* Predicate.h */,
-				F0FC0780216BD6C800478198 /* Parameter.h */,
-				F0FC0776216BD59D00478198 /* DatalogProgram.h */,
-				F0FC0772216BD58000478198 /* Scanner.cpp */,
-				F0FC0773216BD58000478198 /* Scanner.h */,
+				F0FC07B32176451F00478198 /* main.cpp */,
+				F0FC07BA2176454B00478198 /* Scanner.cpp */,
+				F0FC07BB2176454B00478198 /* Scanner.h */,
+				F0FC07BD2176457E00478198 /* DatalogProgram.cpp */,
+				F0FC07BE2176457E00478198 /* DatalogProgram.h */,
+				F0FC07C0217645B100478198 /* Expressions.h */,
+				F0FC07C1217645D300478198 /* Parameter.h */,
+				F0FC07C2217645EC00478198 /* Predicate.cpp */,
+				F0FC07C3217645EC00478198 /* Predicate.h */,
+				F0FC07C52176461100478198 /* Rule.h */,
+				F0FC07C62176462600478198 /* Token.h */,
 			);
-			path = DatalogParserP2;
+			path = DatalogParser3.0;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F0FC0767216BD55B00478198 /* DatalogParserP2 */ = {
+		F0FC07AF2176451F00478198 /* DatalogParser3.0 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F0FC076F216BD55B00478198 /* Build configuration list for PBXNativeTarget "DatalogParserP2" */;
+			buildConfigurationList = F0FC07B72176451F00478198 /* Build configuration list for PBXNativeTarget "DatalogParser3.0" */;
 			buildPhases = (
-				F0FC0764216BD55B00478198 /* Sources */,
-				F0FC0765216BD55B00478198 /* Frameworks */,
-				F0FC0766216BD55B00478198 /* CopyFiles */,
+				F0FC07AC2176451F00478198 /* Sources */,
+				F0FC07AD2176451F00478198 /* Frameworks */,
+				F0FC07AE2176451F00478198 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = DatalogParserP2;
-			productName = DatalogParserP2;
-			productReference = F0FC0768216BD55B00478198 /* DatalogParserP2 */;
+			name = DatalogParser3.0;
+			productName = DatalogParser3.0;
+			productReference = F0FC07B02176451F00478198 /* DatalogParser3.0 */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		F0FC0760216BD55B00478198 /* Project object */ = {
+		F0FC07A82176451F00478198 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Ellie Van De Graaff";
 				TargetAttributes = {
-					F0FC0767216BD55B00478198 = {
+					F0FC07AF2176451F00478198 = {
 						CreatedOnToolsVersion = 10.0;
 					};
 				};
 			};
-			buildConfigurationList = F0FC0763216BD55B00478198 /* Build configuration list for PBXProject "DatalogParserP2" */;
+			buildConfigurationList = F0FC07AB2176451F00478198 /* Build configuration list for PBXProject "DatalogParser3.0" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = F0FC075F216BD55B00478198;
-			productRefGroup = F0FC0769216BD55B00478198 /* Products */;
+			mainGroup = F0FC07A72176451F00478198;
+			productRefGroup = F0FC07B12176451F00478198 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F0FC0767216BD55B00478198 /* DatalogParserP2 */,
+				F0FC07AF2176451F00478198 /* DatalogParser3.0 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		F0FC0764216BD55B00478198 /* Sources */ = {
+		F0FC07AC2176451F00478198 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0FC0774216BD58000478198 /* Scanner.cpp in Sources */,
-				F0FC077E216BD6A500478198 /* Predicate.cpp in Sources */,
-				F0FC0777216BD59D00478198 /* DatalogProgram.cpp in Sources */,
-				F0FC076C216BD55B00478198 /* main.cpp in Sources */,
+				F0FC07BC2176454B00478198 /* Scanner.cpp in Sources */,
+				F0FC07BF2176457E00478198 /* DatalogProgram.cpp in Sources */,
+				F0FC07B42176451F00478198 /* main.cpp in Sources */,
+				F0FC07C4217645EC00478198 /* Predicate.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		F0FC076D216BD55B00478198 /* Debug */ = {
+		F0FC07B52176451F00478198 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -208,7 +210,7 @@
 			};
 			name = Debug;
 		};
-		F0FC076E216BD55B00478198 /* Release */ = {
+		F0FC07B62176451F00478198 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -260,7 +262,7 @@
 			};
 			name = Release;
 		};
-		F0FC0770216BD55B00478198 /* Debug */ = {
+		F0FC07B82176451F00478198 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -268,7 +270,7 @@
 			};
 			name = Debug;
 		};
-		F0FC0771216BD55B00478198 /* Release */ = {
+		F0FC07B92176451F00478198 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -279,25 +281,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F0FC0763216BD55B00478198 /* Build configuration list for PBXProject "DatalogParserP2" */ = {
+		F0FC07AB2176451F00478198 /* Build configuration list for PBXProject "DatalogParser3.0" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F0FC076D216BD55B00478198 /* Debug */,
-				F0FC076E216BD55B00478198 /* Release */,
+				F0FC07B52176451F00478198 /* Debug */,
+				F0FC07B62176451F00478198 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F0FC076F216BD55B00478198 /* Build configuration list for PBXNativeTarget "DatalogParserP2" */ = {
+		F0FC07B72176451F00478198 /* Build configuration list for PBXNativeTarget "DatalogParser3.0" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F0FC0770216BD55B00478198 /* Debug */,
-				F0FC0771216BD55B00478198 /* Release */,
+				F0FC07B82176451F00478198 /* Debug */,
+				F0FC07B92176451F00478198 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = F0FC0760216BD55B00478198 /* Project object */;
+	rootObject = F0FC07A82176451F00478198 /* Project object */;
 }

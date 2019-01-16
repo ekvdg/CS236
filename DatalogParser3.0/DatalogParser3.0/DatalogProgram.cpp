@@ -3,7 +3,7 @@
 //  DatalogParser
 //
 //  Created by Ellie Van De Graaff on 10/1/18.
-//  Copyright © 2018 Ellie Van De Graaff. All rights reserved.
+//  Copyright � 2018 Ellie Van De Graaff. All rights reserved.
 //
 
 #include <stdio.h>
@@ -11,132 +11,132 @@
 #include <iostream>
 #include "DatalogProgram.h"
 
-DatalogProgram :: DatalogProgram(std::vector<Token> lexTokens){
+DatalogProgram::DatalogProgram(std::vector<Token> lexTokens) {
     passedTokens = lexTokens;
 }
 
-bool DatalogProgram :: dataFacts(std::string &checkToken){
-    if(checkToken != "FACTS"){
+bool DatalogProgram::dataFacts(std::string &checkToken) {
+    if (checkToken != "FACTS") {
         errorMessage();
         return false;
     }
     vecType = "facts";
     index++;
     checkToken = getTokenType();
-    if(checkToken != "COLON"){
+    if (checkToken != "COLON") {
         errorMessage();
         return false;
     }
     index++;
     checkToken = getTokenType();
-    if(!factList(checkToken)){
+    if (!factList(checkToken)) {
         errorMessage();
         return false;
     }
     return true;
 }
-bool DatalogProgram :: dataRules(std::string &checkToken){
-    if(checkToken != "RULES"){
+bool DatalogProgram::dataRules(std::string &checkToken) {
+    if (checkToken != "RULES") {
         errorMessage();
         return false;
     }
     vecType = "rules";
     index++;
     checkToken = getTokenType();
-    if(checkToken != "COLON"){
+    if (checkToken != "COLON") {
         errorMessage();
         return false;
     }
     index++;
     checkToken = getTokenType();
-    if(!ruleList(checkToken)){
+    if (!ruleList(checkToken)) {
         errorMessage();
         return false;
     }
     return true;
 }
-bool DatalogProgram :: dataQueries(std::string &checkToken){
-    if(checkToken != "QUERIES"){
+bool DatalogProgram::dataQueries(std::string &checkToken) {
+    if (checkToken != "QUERIES") {
         errorMessage();
         return false;
     }
     vecType = "queries";
     index++;
     checkToken = getTokenType();
-    if(checkToken != "COLON"){
+    if (checkToken != "COLON") {
         errorMessage();
         return false;
     }
     index++;
     checkToken = getTokenType();
-    if(!query(checkToken)){
+    if (!query(checkToken)) {
         errorMessage();
         return false;
     }
     index++;
     checkToken = getTokenType();
-    if(!queryList(checkToken)){
+    if (!queryList(checkToken)) {
         errorMessage();
         return false;
     }
     return true;
 }
 
-bool DatalogProgram :: datalogProgram(std::string &checkToken){
+bool DatalogProgram::datalogProgram(std::string &checkToken) {
     //SCHEMES COLON scheme schemeList   FACTS COLON factList   RULES COLON ruleList   QUERIES COLON query queryList
-    if(checkToken != "SCHEMES"){
+    if (checkToken != "SCHEMES") {
         errorMessage();
         return false;
     }
     vecType = "schemes";
     index++;
     checkToken = getTokenType();
-    if(checkToken != "COLON"){
+    if (checkToken != "COLON") {
         errorMessage();
         return false;
     }
     index++;
     checkToken = getTokenType();
-    if(!scheme(checkToken)){
+    if (!scheme(checkToken)) {
         errorMessage();
         return false;
     }
     index++;
     checkToken = getTokenType();
-    if(!schemeList(checkToken)){
+    if (!schemeList(checkToken)) {
         errorMessage();
         return false;
     }
-    if(!dataFacts(checkToken)){
+    if (!dataFacts(checkToken)) {
         errorMessage();
         return false;
     }
-    if (!dataRules(checkToken)){
+    if (!dataRules(checkToken)) {
         errorMessage();
         return false;
     }
-    if(!dataQueries(checkToken)){
+    if (!dataQueries(checkToken)) {
         errorMessage();
         return false;
     }
     return true;
 }
-bool DatalogProgram :: scheme(std::string &checkToken){
+bool DatalogProgram::scheme(std::string &checkToken) {
     //ID LEFT_PAREN ID idList RIGHT_PAREN
-    if(checkToken != "ID"){
+    if (checkToken != "ID") {
         errorMessage();
         return false;
     }
     schemeStore.setID(passedTokens.at(index).getString());
     index++;
     checkToken = getTokenType();
-    if(checkToken != "LEFT_PAREN"){
+    if (checkToken != "LEFT_PAREN") {
         errorMessage();
         return false;
     }
     index++;
     checkToken = getTokenType();
-    if(checkToken != "ID"){
+    if (checkToken != "ID") {
         errorMessage();
         return false;
     }
@@ -144,11 +144,11 @@ bool DatalogProgram :: scheme(std::string &checkToken){
     schemeStore.addParam(addParameter);
     index++;
     checkToken = getTokenType();
-    if(!idList(checkToken)){
+    if (!idList(checkToken)) {
         errorMessage();
         return false;
     }
-    if(checkToken != "RIGHT_PAREN"){
+    if (checkToken != "RIGHT_PAREN") {
         errorMessage();
         return false;
     }
@@ -156,71 +156,71 @@ bool DatalogProgram :: scheme(std::string &checkToken){
     schemeStore.clear();
     return true;
 }
-bool DatalogProgram :: schemeList(std::string &checkToken){
+bool DatalogProgram::schemeList(std::string &checkToken) {
     //scheme schemeList | lambda
-    if(checkToken == "FACTS"){
+    if (checkToken == "FACTS") {
         return true;
     }
-    if(!scheme(checkToken)){
+    if (!scheme(checkToken)) {
         errorMessage();
         return false;
     }
     index++;
     checkToken = getTokenType();
-    if(!schemeList(checkToken)){
+    if (!schemeList(checkToken)) {
         errorMessage();
         return false;
     }
     return true;
 }
 
-bool DatalogProgram :: idList(std::string &checkToken){
+bool DatalogProgram::idList(std::string &checkToken) {
     //COMMA ID idList | lambda
-    if(checkToken == "RIGHT_PAREN"){
+    if (checkToken == "RIGHT_PAREN") {
         return true;
     }
-    if(checkToken != "COMMA"){
+    if (checkToken != "COMMA") {
         errorMessage();
         return false;
     }
     index++;
     checkToken = getTokenType();
-    if(checkToken != "ID"){
+    if (checkToken != "ID") {
         errorMessage();
         return false;
     }
-    if(vecType == "rules"){
+    if (vecType == "rules") {
         ruleStore.head.addParam(passedTokens.at(index).getString());
     }
-    if(vecType == "schemes"){
+    if (vecType == "schemes") {
         Parameter addParameter(passedTokens.at(index).getString());
         schemeStore.addParam(addParameter);
     }
     index++;
     checkToken = getTokenType();
-    if(!idList(checkToken)){
+    if (!idList(checkToken)) {
         errorMessage();
         return false;
     }
     return true;
 }
 
-bool DatalogProgram :: fact(std::string &checkToken){
+bool DatalogProgram::fact(std::string &checkToken) {
     //ID LEFT_PAREN STRING stringList RIGHT_PAREN PERIOD
-    if(checkToken != "ID"){
+    if (checkToken != "ID") {
         errorMessage();
         return false;
     }
     factStore.setID(passedTokens.at(index).getString());
     index++;
     checkToken = getTokenType();
-    if(checkToken != "LEFT_PAREN"){
+    if (checkToken != "LEFT_PAREN") {
         errorMessage();
         return false;
     }
     index++;
     checkToken = getTokenType();
-    if(checkToken != "STRING"){
+    if (checkToken != "STRING") {
         errorMessage();
         return false;
     }
@@ -229,17 +229,17 @@ bool DatalogProgram :: fact(std::string &checkToken){
     domain.insert(passedTokens.at(index).getString());
     index++;
     checkToken = getTokenType();
-    if (!stringList(checkToken)){
+    if (!stringList(checkToken)) {
         errorMessage();
         return false;
     }
-    if(checkToken != "RIGHT_PAREN"){
+    if (checkToken != "RIGHT_PAREN") {
         errorMessage();
         return false;
     }
     index++;
     checkToken = getTokenType();
-    if(checkToken != "PERIOD"){
+    if (checkToken != "PERIOD") {
         errorMessage();
         return false;
     }
@@ -248,50 +248,50 @@ bool DatalogProgram :: fact(std::string &checkToken){
     return true;
 }
 
-bool DatalogProgram :: factList(std::string &checkToken){
+bool DatalogProgram::factList(std::string &checkToken) {
     //fact factList | lambda
-    if(checkToken == "RULES"){
+    if (checkToken == "RULES") {
         return true;
     }
-    if(!fact(checkToken)){
+    if (!fact(checkToken)) {
         errorMessage();
         return false;
     }
     index++;
     checkToken = getTokenType();
-    if(!factList(checkToken)){
+    if (!factList(checkToken)) {
         errorMessage();
         return false;
     }
     return true;
 }
 
-bool DatalogProgram :: rule(std::string &checkToken){
+bool DatalogProgram::rule(std::string &checkToken) {
     //headPredicate COLON_DASH predicate predicateList PERIOD
     ruleStore = Rule();
-    if(!headPredicate(checkToken)){
+    if (!headPredicate(checkToken)) {
         errorMessage();
         return false;
     }
     index++;
     checkToken = getTokenType();
-    if(checkToken != "COLON_DASH"){
+    if (checkToken != "COLON_DASH") {
         errorMessage();
         return false;
     }
     index++;
     checkToken = getTokenType();
-    if(!predicate(checkToken)){
+    if (!predicate(checkToken)) {
         errorMessage();
         return false;
     }
     index++;
-    checkToken= getTokenType();
-    if(!predicateList(checkToken)){
+    checkToken = getTokenType();
+    if (!predicateList(checkToken)) {
         errorMessage();
         return false;
     }
-    if(checkToken != "PERIOD"){
+    if (checkToken != "PERIOD") {
         errorMessage();
         return false;
     }
@@ -299,239 +299,263 @@ bool DatalogProgram :: rule(std::string &checkToken){
     return true;
 }
 
-bool DatalogProgram :: ruleList(std::string &checkToken){
+bool DatalogProgram::ruleList(std::string &checkToken) {
     //rule ruleList | lambda
-    if(checkToken == "QUERIES"){
+    if (checkToken == "QUERIES") {
         return true;
     }
-    if(!rule(checkToken)){
+    if (!rule(checkToken)) {
         errorMessage();
         return false;
     }
     index++;
     checkToken = getTokenType();
-    if(!ruleList(checkToken)){
+    if (!ruleList(checkToken)) {
         errorMessage();
         return false;
     }
     return true;
 }
 
-bool DatalogProgram :: headPredicate(std::string &checkToken){
+bool DatalogProgram::headPredicate(std::string &checkToken) {
     //ID LEFT_PAREN ID idList RIGHT_PAREN
-    if(checkToken != "ID"){
+    if (checkToken != "ID") {
         errorMessage();
         return false;
     }
     ruleStore.head.setID(passedTokens.at(index).getString());
     index++;
-    checkToken  = getTokenType();
-    if(checkToken != "LEFT_PAREN"){
+    checkToken = getTokenType();
+    if (checkToken != "LEFT_PAREN") {
         errorMessage();
         return false;
     }
     index++;
     checkToken = getTokenType();
-    if(checkToken != "ID"){
+    if (checkToken != "ID") {
         errorMessage();
         return false;
     }
     ruleStore.head.addParam(passedTokens.at(index).getString());
     index++;
     checkToken = getTokenType();
-    if(!idList(checkToken)){
+    if (!idList(checkToken)) {
         errorMessage();
         return false;
     }
     //index++;
     //checkToken = getTokenType();
-    if(checkToken != "RIGHT_PAREN"){
+    if (checkToken != "RIGHT_PAREN") {
         errorMessage();
         return false;
     }
     return true;
 }
 
-bool DatalogProgram :: predicate(std::string &checkToken){
+void DatalogProgram::extraPred(){
+    if (vecType == "rules") {
+        currentPred.setID(passedTokens.at(index).getString());
+    }
+    if (vecType == "queries")
+        currentPred.setID(passedTokens.at(index).getString());
+}
+
+bool DatalogProgram::predicate(std::string &checkToken) {
     //ID LEFT_PAREN parameter parameterList RIGHT_PAREN
     currentPred = Predicate();
-    if(checkToken != "ID"){
+    if (checkToken != "ID") {
         errorMessage();
         return false;
     }
-    if(vecType == "rules"){
-        currentPred.setID(passedTokens.at(index).getString());
-    }
-    if(vecType == "queries")
-        currentPred.setID(passedTokens.at(index).getString());
-        //queryStore.setID(passedTokens.at(index).getString());
+    extraPred();
+    //queryStore.setID(passedTokens.at(index).getString());
     index++;
     checkToken = getTokenType();
-    if(checkToken != "LEFT_PAREN"){
+    if (checkToken != "LEFT_PAREN") {
         errorMessage();
         return false;
     }
     index++;
     checkToken = getTokenType();
-    if(!parameter(checkToken)){
+    if (!parameter(checkToken)) {
         errorMessage();
         return false;
     }
-    currentPred.addParam(currentParam);
+    if (tempExpr.parsing) {
+        tempExpr.addItem(")");
+        Parameter holder;
+        holder.setString(tempExpr.stringValue);
+        currentPred.addParam(holder);
+        tempExpr.clear();
+    }
+    else {
+        currentPred.addParam(currentParam);
+    }
     index++;
     checkToken = getTokenType();
-    if(!parameterList(checkToken)){
+    if (!parameterList(checkToken)) {
         errorMessage();
         return false;
     }
-    //index++;
-    //checkToken = getTokenType();
-    if(checkToken != "RIGHT_PAREN"){
+    if (checkToken != "RIGHT_PAREN") {
         errorMessage();
         return false;
     }
-    if(vecType == "rules"){
+    otherExtraPred();
+    return true;
+}
+
+void DatalogProgram::otherExtraPred(){
+    if (vecType == "rules") {
         ruleStore.addVector(currentPred);
     }
-    if(vecType == "queries"){
+    if (vecType == "queries") {
         storedQueries.push_back(currentPred);
     }
-    return true;
 }
 
-bool DatalogProgram :: predicateList(std::string &checkToken){
+
+bool DatalogProgram::predicateList(std::string &checkToken) {
     //COMMA predicate predicateList | lambda
-    if(checkToken == "PERIOD"){
+    if (checkToken == "PERIOD") {
         return true;
     }
-    if(checkToken != "COMMA"){
+    if (checkToken != "COMMA") {
         errorMessage();
         return false;
     }
     index++;
     checkToken = getTokenType();
-    if(!predicate(checkToken)){
+    if (!predicate(checkToken)) {
         errorMessage();
         return false;
     }
     index++;
     checkToken = getTokenType();
-    if(!predicateList(checkToken)){
+    if (!predicateList(checkToken)) {
         errorMessage();
         return false;
     }
     return true;
 }
 
-bool DatalogProgram :: parameter(std::string &checkToken){
+bool DatalogProgram::parameter(std::string &checkToken) {
     //STRING | ID | expression
     currentParam = Parameter();
-    if(checkToken == "STRING"){
+    if (checkToken == "STRING") {
         currentParam.setString(passedTokens.at(index).getString());
-        //currentParam = Parameter();
-        //domain.insert(passedTokens.at(index).getString());
         return true;
     }
-    else if(checkToken == "ID"){
-       currentParam.setString(passedTokens.at(index).getString());
-        //currentParam = Parameter();
+    else if (checkToken == "ID") {
+        currentParam.setString(passedTokens.at(index).getString());
         return true;
     }
-    else if(expression(checkToken)){
-        currentParam.setString("");
+    else if (expression(checkToken)) {
         return true;
     }
-    else{
+    else {
         errorMessage();
         return false;
     }
 }
 
-bool DatalogProgram :: parameterList(std::string &checkToken){
+bool DatalogProgram::parameterList(std::string &checkToken) {
     //COMMA parameter parameterList | lambda
-    if(checkToken == "RIGHT_PAREN"){
+    if (checkToken == "RIGHT_PAREN") {
+        if (tempExpr.parsing) {
+            tempExpr.addItem(")");
+        }
         return true;
     }
-    if(checkToken != "COMMA"){
+    if (checkToken != "COMMA") {
         errorMessage();
         return false;
     }
     index++;
     checkToken = getTokenType();
-    if(!parameter(checkToken)){
-        errorMessage();
-        return false;
-    }
-    currentPred.addParam(currentParam);
-    index++;
-    checkToken = getTokenType();
-    if(!parameterList(checkToken)){
-        errorMessage();
-        return false;
-    }
-    return true;
-}
-
-bool DatalogProgram :: expression(std::string &checkToken){
-    //LEFT_PAREN parameter operator parameter RIGHT_PAREN
-    Parameter temp = Parameter();
-    temp = currentParam;
-    if(checkToken != "LEFT_PAREN"){
-        errorMessage();
-        return false;
-    }
-    index++;
-    checkToken = getTokenType();
-    if(!parameter(checkToken)){
-        errorMessage();
-        return false;
-    }
-    temp.setLeft(&currentParam);
-    index++;
-    checkToken = getTokenType();
-    if(!operatorFunction(checkToken)){
-        errorMessage();
-        return false;
-    }
-    temp.setOp(passedTokens.at(index).getString());
-    index++;
-    checkToken = getTokenType();
-    if(!parameter(checkToken)){
-        errorMessage();
-        return false;
-    }
-    temp.setRight(&currentParam);
-    index++;
-    checkToken = getTokenType();
-    if(checkToken != "RIGHT_PAREN"){
+    if (!parameter(checkToken)) {
         errorMessage();
         return false;
     }
     
-    currentParam = temp;
+    if (tempExpr.parsing) {
+        tempExpr.addItem(")");
+        Parameter holder;
+        holder.setString(tempExpr.stringValue);
+        currentPred.addParam(holder);
+        tempExpr.clear();
+    }
+    else {
+        currentPred.addParam(currentParam);
+    }
+    index++;
+    checkToken = getTokenType();
+    if (!parameterList(checkToken)) {
+        errorMessage();
+        return false;
+    }
     return true;
 }
 
-bool DatalogProgram :: operatorFunction(std::string &checkToken){
+bool DatalogProgram::expression(std::string &checkToken) {
+    //LEFT_PAREN parameter operator parameter RIGHT_PAREN
+    tempExpr.parsing = true;
+    if (checkToken != "LEFT_PAREN") {
+        errorMessage();
+        return false;
+    }
+    tempExpr.addItem(passedTokens.at(index).getString());
+    index++;
+    checkToken = getTokenType();
+    if (!parameter(checkToken)) {
+        errorMessage();
+        return false;
+    }
+    tempExpr.addItem(passedTokens.at(index).getString());//here
+    index++;
+    checkToken = getTokenType();
+    if (!operatorFunction(checkToken)) {
+        errorMessage();
+        return false;
+    }
+    tempExpr.addItem(passedTokens.at(index).getString());
+    index++;
+    checkToken = getTokenType();
+    if (!parameter(checkToken)) {
+        errorMessage();
+        return false;
+    }
+    tempExpr.addItem(passedTokens.at(index).getString());
+    index++;
+    checkToken = getTokenType();
+    if (checkToken != "RIGHT_PAREN") {
+        errorMessage();
+        return false;
+    }
+    
+    return true;
+}
+
+bool DatalogProgram::operatorFunction(std::string &checkToken) {
     //ADD | MULTIPLY
-    if(checkToken == "ADD"){
+    if (checkToken == "ADD") {
         return true;
     }
-    if(checkToken == "MULTIPLY"){
+    if (checkToken == "MULTIPLY") {
         return true;
     }
-    return true;
+    return false;
 }
 
-bool DatalogProgram :: query(std::string &checkToken){
+bool DatalogProgram::query(std::string &checkToken) {
     //predicate Q_MARK
-    if(!predicate(checkToken)){
+    if (!predicate(checkToken)) {
         errorMessage();
         return false;
     }
     index++;
     checkToken = getTokenType();
-    if(checkToken != "Q_MARK"){
+    if (checkToken != "Q_MARK") {
         errorMessage();
         return false;
     }
@@ -540,36 +564,36 @@ bool DatalogProgram :: query(std::string &checkToken){
     return true;
 }
 
-bool DatalogProgram :: queryList(std::string &checkToken){
+bool DatalogProgram::queryList(std::string &checkToken) {
     //query queryList | lambda
-    if(checkToken == "EOF"){
+    if (checkToken == "EOF") {
         return true;
     }
-    if(!query(checkToken)){
+    if (!query(checkToken)) {
         errorMessage();
         return false;
     }
     index++;
     checkToken = getTokenType();
-    if(!queryList(checkToken)){
+    if (!queryList(checkToken)) {
         errorMessage();
         return false;
     }
     return true;
 }
 
-bool DatalogProgram :: stringList(std::string &checkToken){
+bool DatalogProgram::stringList(std::string &checkToken) {
     //COMMA STRING stringList | lambda
-    if(checkToken == "RIGHT_PAREN"){
+    if (checkToken == "RIGHT_PAREN") {
         return true;
     }
-    if(checkToken != "COMMA"){
+    if (checkToken != "COMMA") {
         errorMessage();
         return false;
     }
     index++;
     checkToken = getTokenType();
-    if(checkToken != "STRING"){
+    if (checkToken != "STRING") {
         errorMessage();
         return false;
     }
@@ -578,64 +602,64 @@ bool DatalogProgram :: stringList(std::string &checkToken){
     domain.insert(passedTokens.at(index).getString());
     index++;
     checkToken = getTokenType();
-    if(!stringList(checkToken)){
+    if (!stringList(checkToken)) {
         errorMessage();
         return false;
     }
     return true;
 }
 
-void DatalogProgram :: errorMessage(){
+void DatalogProgram::errorMessage() {
     Token failValue = passedTokens.at(index);
     throw failValue;
 }
 
 
-std::string DatalogProgram :: getTokenType(){
+std::string DatalogProgram::getTokenType() {
     std::string returnVal;
     returnVal = passedTokens.at(index).getTokenType();
     return returnVal;
 }
 
-void DatalogProgram :: printOutSchemes(){
-    std::cout << "Schemes(" <<  storedSchemes.size() << "):" << std::endl;
-    for(unsigned int i = 0; i < storedSchemes.size(); i++){
+void DatalogProgram::printOutSchemes() {
+    std::cout << "Schemes(" << storedSchemes.size() << "):" << std::endl;
+    for (unsigned int i = 0; i < storedSchemes.size(); i++) {
         std::cout << storedSchemes.at(i).toString() << std::endl;
     }
 }
 
-void DatalogProgram :: printOutFacts(){
+void DatalogProgram::printOutFacts() {
     std::cout << "Facts(" << storedFacts.size() << "):" << std::endl;
-    for(unsigned int i = 0; i < storedFacts.size(); i++){
+    for (unsigned int i = 0; i < storedFacts.size(); i++) {
         std::cout << storedFacts.at(i).toString() << "." << std::endl;
     }
 }
 
-void DatalogProgram :: printOutRules(){
+void DatalogProgram::printOutRules() {
     std::cout << "Rules(" << storedRules.size() << "):" << std::endl;
-    for(unsigned int i = 0; i < storedRules.size(); i++){
-            std::cout << storedRules.at(i).toString() << std::endl;
+    for (unsigned int i = 0; i < storedRules.size(); i++) {
+        std::cout << storedRules.at(i).toString() << std::endl;
     }
 }
 
-void DatalogProgram :: printOutQueries(){
+void DatalogProgram::printOutQueries() {
     std::cout << "Queries(" << storedQueries.size() << "):" << std::endl;
-    for(unsigned int i = 0; i < storedQueries.size(); i++){
+    for (unsigned int i = 0; i < storedQueries.size(); i++) {
         std::cout << storedQueries.at(i).queriesToString() << std::endl;
     }
 }
 
-void DatalogProgram :: printOutDomain(){
+void DatalogProgram::printOutDomain() {
     std::cout << "Domain(" << domain.size() << "):" << std::endl;
-    for (std::set<std::string>::iterator it=domain.begin(); it!=domain.end(); ++it){
-        std::cout << "  "  << *it << std::endl;
+    for (std::set<std::string>::iterator it = domain.begin(); it != domain.end(); ++it) {
+        std::cout << "  " << *it << std::endl;
     }
 }
 
-int DatalogProgram :: main(){
+int DatalogProgram::main() {
     std::string checkToken;
     checkToken = getTokenType();
-    if(datalogProgram(checkToken)){
+    if (datalogProgram(checkToken)) {
         std::cout << "Success!" << std::endl;
     }
     printOutSchemes();

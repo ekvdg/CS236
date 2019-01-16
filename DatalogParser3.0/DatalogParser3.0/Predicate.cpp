@@ -3,7 +3,7 @@
 //  DatalogParserP2
 //
 //  Created by Ellie Van De Graaff on 10/8/18.
-//  Copyright © 2018 Ellie Van De Graaff. All rights reserved.
+//  Copyright � 2018 Ellie Van De Graaff. All rights reserved.
 //
 
 #include "Predicate.h"
@@ -11,14 +11,14 @@
 #include <iomanip>
 #include <iostream>
 
-std::string Predicate :: rulesToString(){
+std::string Predicate::rulesToString() {
     std::ostringstream out;
     out << ID << "(";
-    for(unsigned int i = 0; i < parameters.size(); i++){
-        if(i == parameters.size() - 1){
+    for (unsigned int i = 0; i < parameters.size(); i++) {
+        if (i == parameters.size() - 1) {
             out << parameters.at(i).toString();
         }
-        else{
+        else {
             out << parameters.at(i).toString() << ",";
         }
     }
@@ -28,14 +28,14 @@ std::string Predicate :: rulesToString(){
     return outString;
 }
 
-std::string Predicate :: queriesToString(){
+std::string Predicate::queriesToString() {
     std::ostringstream out;
     out << "  " << ID << "(";
-    for(unsigned int i = 0; i < parameters.size(); i++){
-        if(i == parameters.size() - 1){
+    for (unsigned int i = 0; i < parameters.size(); i++) {
+        if (i == parameters.size() - 1) {
             out << parameters.at(i).toString();
         }
-        else{
+        else {
             out << parameters.at(i).toString() << ",";
         }
     }
@@ -43,14 +43,14 @@ std::string Predicate :: queriesToString(){
     return out.str();
 }
 
-std::string Predicate :: toString(){
+std::string Predicate::toString() {
     std::ostringstream out;
     out << "  " << ID << "(";
-    for(unsigned int i = 0; i < parameters.size(); i++){
-        if(i == parameters.size() - 1){
+    for (unsigned int i = 0; i < parameters.size(); i++) {
+        if (i == parameters.size() - 1) {
             out << parameters.at(i).toString();
         }
-        else{
+        else {
             out << parameters.at(i).toString() << ",";
         }
     }
@@ -60,15 +60,15 @@ std::string Predicate :: toString(){
     return outString;
 }
 
-void Predicate :: addParam(Parameter newParam){
+void Predicate::addParam(Parameter newParam) {
     parameters.push_back(newParam);
 }
 
-void Predicate :: setID(std::string newID) {
+void Predicate::setID(std::string newID) {
     ID = newID;
 }
 
-void Predicate :: clear(){
+void Predicate::clear() {
     parameters.clear();
 }
 

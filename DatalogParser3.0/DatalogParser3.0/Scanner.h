@@ -3,7 +3,7 @@
 //  LAnalyzer
 //
 //  Created by Ellie Van De Graaff on 9/20/18.
-//  Copyright © 2018 Ellie Van De Graaff. All rights reserved.
+//  Copyright � 2018 Ellie Van De Graaff. All rights reserved.
 //
 
 #ifndef Scanner_h
@@ -13,7 +13,7 @@
 #include <fstream>
 #include "Token.h"
 #include "DatalogProgram.h"
-class Scanner{
+class Scanner {
 private:
     std::vector<Token> storedTokens;
     std::string file;

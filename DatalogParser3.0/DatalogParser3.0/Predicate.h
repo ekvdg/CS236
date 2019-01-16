@@ -3,7 +3,7 @@
 //  DatalogParserP2
 //
 //  Created by Ellie Van De Graaff on 10/8/18.
-//  Copyright © 2018 Ellie Van De Graaff. All rights reserved.
+//  Copyright � 2018 Ellie Van De Graaff. All rights reserved.
 //
 
 #ifndef Predicate_hpp
@@ -14,7 +14,7 @@
 #include <vector>
 #include "Parameter.h"
 
-class Predicate{
+class Predicate {
 private:
     std::string ID;
     std::vector<Parameter> parameters;
