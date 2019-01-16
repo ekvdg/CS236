@@ -1,0 +1,47 @@
+#| This should output:
+Success
+In this case, the output with/without rules is very different because the rules add quite a few tuples into the relation. This is testing to make sure those tuples are still being evaluated.
+
+Schemes populated after 2 passes through the Rules.
+ab('tyler','mark')? Yes(1)
+ab(who,'liam')? Yes(3)
+  who='liam'
+  who='mark'
+  who='tyler'
+ab('tyler',anyone)? Yes(3)
+  anyone='liam'
+  anyone='mark'
+  anyone='tyler'
+ab(X,X)? Yes(3)
+  X='liam'
+  X='mark'
+  X='tyler'
+ab(X,Y)? Yes(9)
+  X='liam', Y='liam'
+  X='liam', Y='mark'
+  X='liam', Y='tyler'
+  X='mark', Y='liam'
+  X='mark', Y='mark'
+  X='mark', Y='tyler'
+  X='tyler', Y='liam'
+  X='tyler', Y='mark'
+  X='tyler', Y='tyler'
+|#
+
+Schemes: 
+	ab(A,B)
+Facts:
+	ab('tyler','liam').
+	ab('mark','liam').
+	ab('tyler','mark').
+	ab('liam','liam').
+Rules:
+  	ab(B,A) :- ab(A,B).
+	ab(B,B) :- ab(A,B).
+
+Queries:
+	ab('tyler','mark')?
+	ab( who, 'liam')?
+	ab('tyler', anyone)?
+	ab(X,X)?
+	ab(X,Y)?

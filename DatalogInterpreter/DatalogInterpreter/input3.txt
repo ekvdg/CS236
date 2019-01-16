@@ -1,0 +1,28 @@
+#|This output should be a success:
+It is testing the relationships between the two different kinds of schemes
+
+Schemes populated after 2 passes through the Rules.
+Schedule('Goofy','CS240',X)? No
+Sports('Max',X)? Yes(1)
+  X='skateboarding'
+Schedule(X,Y,'Mathematics')? Yes(1)
+  X='Raqis', Y='CS240'
+|#
+
+
+Schemes:
+  Schedule(N,C,M)
+  Sports(P,S)
+Facts:
+  Schedule('Raqis','CS240','Mathematics').
+  Sports('Goofy','fishing').
+  Schedule('Bobby','NEURO360','Neuroscience').
+  Schedule('PJ','PSYCH370','Psychology').
+  Sports('Max','skateboarding').
+Rules:
+  Schedule(X,Y,Z) :- Schedule(X,Y,Z).
+  Sports(E,F) :- Schedule(A,B,C).
+Queries:
+  Schedule('Goofy','CS240',X)?
+  Sports('Max',X)?
+  Schedule(X,Y,'Mathematics')?

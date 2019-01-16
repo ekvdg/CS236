@@ -1,0 +1,20 @@
+#| This should be a success:
+This is a very simple test. The rule in this case doesn't really do much, but it checks that even in this case, the rules are still being evaluated and the fixed point algorithm is still being ran.
+
+Schemes populated after 1 passes through the Rules.
+goldfish(X)? Yes(1)
+  X='the snack that smiles back'
+|#
+
+Schemes:
+  goldfish(X)
+
+Facts:
+  goldfish('the snack that smiles back').
+
+Rules:
+  goldfish(X) :- goldfish(X).
+
+Queries:
+  goldfish(X)?
+

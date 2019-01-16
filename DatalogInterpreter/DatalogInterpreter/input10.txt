@@ -1,0 +1,62 @@
+#| This is what it should output:
+This is my biggest test file. The rules add a significant amount to the test file that was not there previously, and it requires the most amount of passes through the rules out of all of my test files.
+
+Schemes populated after 5 passes through the Rules.
+s('3',Z)? Yes(4)
+  Z='1'
+  Z='3'
+  Z='4'
+  Z='5'
+a(Y,'3')? Yes(4)
+  Y='1'
+  Y='3'
+  Y='4'
+  Y='5'
+s(W,X)? Yes(18)
+  W='1', X='1'
+  W='1', X='2'
+  W='1', X='3'
+  W='1', X='4'
+  W='1', X='5'
+  W='3', X='1'
+  W='3', X='3'
+  W='3', X='4'
+  W='3', X='5'
+  W='4', X='1'
+  W='4', X='3'
+  W='4', X='4'
+  W='4', X='5'
+  W='5', X='1'
+  W='5', X='2'
+  W='5', X='3'
+  W='5', X='4'
+  W='5', X='5'
+|#
+
+
+Schemes:
+    s(A,B)
+    n(C,D)
+    a(E,F)
+    p(G,H)
+
+Facts:
+    s('1','2').
+    s('4','3').
+    n('3','2').
+    a('1','4').
+    a('2','5').
+    a('3','5').
+    a('4','1').
+    p('2','3').
+    
+ 
+Rules:
+    a(A,B) :- s(A,X),n(B,X).
+    s(C,D) :- a(D,C).
+    n(E,F) :- s(E,X),a(X,F).
+
+Queries:
+    s('3',Z)?
+    a(Y,'3')?
+    s(W,X)?

@@ -1,0 +1,33 @@
+#| This should be a success and it should output:
+This is testing different types of rule dependencies between different types of schemes and for multiple dependencies in one rule.
+
+Schemes populated after 2 passes through the Rules.
+mango(A)? Yes(2)
+  A='a'
+  A='b'
+mango('a')? Yes(1)
+pineapple(X,X)? No
+|#
+
+Schemes:
+  mango(A)
+  pineapple(B,C)
+
+Facts:
+  mango('a').
+  mango('a').
+  mango('b').
+  pineapple('x','y').
+
+
+Rules:
+  mango(B) :- pineapple(X,X).
+  pineapple(C,B) :- pineapple(B,C).
+  pineapple(B,C) :- mango(A),mango(B),pineapple(B,C).
+  
+
+Queries:
+  mango(A)?
+  mango('a')?
+  pineapple(X,X)?
+

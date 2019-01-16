@@ -1,0 +1,21 @@
+#|This output should be a success:
+This tests several predicates in one rule (ie using the join function)
+Schemes populated after 1 passes through the Rules.
+nacho('pepperjack',X)? Yes(1)
+  X='jalepeños'
+nacho(X,Y)? Yes(2)
+  X='cheddar', Y='guacamole'
+  X='pepperjack', Y='jalepeños'
+|#
+
+
+Schemes:
+  nacho(cheese,toppings)
+Facts:
+  nacho('pepperjack','jalepeños').
+  nacho('cheddar','guacamole').
+Rules:
+  nacho(A,B):-nacho(X,Y),nacho(X,X).
+Queries:
+  nacho('pepperjack',X)?
+  nacho(X,Y)?

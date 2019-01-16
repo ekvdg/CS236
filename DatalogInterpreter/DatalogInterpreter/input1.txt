@@ -1,0 +1,29 @@
+#|This output should be a success:
+This is just a basic test to determine if I can evaluate rules and use the fixed point algorithm.
+
+Schemes populated after 2 passes through the Rules.
+dance('Sparkly glove','Thriller')? No
+song(X,'Rock')? Yes(1)
+  X='ACDC'
+song('Reggae',Y)? No
+dance('Cowboy hat','Cotton Eye Joe')? Yes(1)
+|#
+
+
+Schemes:
+  dance(outfit,moves)
+  song(artist,genre)
+Facts:
+  dance('80s outfit','electric slide').
+  song('James Blunt','Chill').
+  dance('Cowboy hat','Cotton Eye Joe').
+  song('Bob Marley','Reggae').
+  song('ACDC','Rock').
+Rules:
+  dance(O,M) :- song(O,M).
+Queries:
+  dance('Sparkly glove','Thriller')?
+  song(X,'Rock')?
+  song('Reggae',Y)?
+  dance('Cowboy hat','Cotton Eye Joe')?
+ 
